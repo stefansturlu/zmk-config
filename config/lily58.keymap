@@ -12,8 +12,9 @@
 #define DEFAULT 0
 #define COLEMAK 1
 #define NUMPAD 2
-#define LOWER 3
-#define RAISE 4
+#define MEDIA 3
+#define LOWER 4
+#define RAISE 5
 
 / {
 	keymap {
@@ -32,23 +33,23 @@
 
 		default_layer {
 // --ENGLISH---------------------------------------------------------------------------------------------------
-// |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   -   |
-// |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |  "["  |
-// |  CTRL |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ;   |   '   |
-// | SHIFT |  Z  |  X  |  C   |  V   |  B   |  VOL-  |  |  VOL+ |  N   |  M    |  ,    |  .   |   /   | SHIFT |
-//                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   |
+// |  ESC  |  1  |  2  |  3   |  4   |  5   |                    |  6   |  7    |  8    |  9   |   0   |   -   |
+// |  TAB  |  Q  |  W  |  E   |  R   |  T   |                    |  Y   |  U    |  I    |  O   |   P   |  "["  |
+// |  CTRL |  A  |  S  |  D   |  F   |  G   |                    |  H   |  J    |  K    |  L   |   ;   |   '   |
+// | SHIFT |  Z  |  X  |  C   |  V   |  B   |  MEDIA |  | NUMPAD |  N   |  M    |  ,    |  .   |   /   | SHIFT |
+//                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER  | RAISE| BSPC  | GUI   |
 // --ICELANDIC-------------------------------------------------------------------------------------------------
-// |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   Ö   |
-// |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |   Ð   |
-// |  CTRL |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   Æ   |   ´   |
-// | SHIFT |  Z  |  X  |  C   |  V   |  B   |  VOL-  |  |  VOL+ |  N   |  M    |  ,    |  .   |   Þ   | SHIFT |
-//                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   |
+// |  ESC  |  1  |  2  |  3   |  4   |  5   |                    |  6   |  7    |  8    |  9   |   0   |   Ö   |
+// |  TAB  |  Q  |  W  |  E   |  R   |  T   |                    |  Y   |  U    |  I    |  O   |   P   |   Ð   |
+// |  CTRL |  A  |  S  |  D   |  F   |  G   |                    |  H   |  J    |  K    |  L   |   Æ   |   ´   |
+// | SHIFT |  Z  |  X  |  C   |  V   |  B   |  MEDIA |  | NUMPAD |  N   |  M    |  ,    |  .   |   Þ   | SHIFT |
+//                     | ALT  | GUI  | LOWER|  SPACE |  |  ENTER | RAISE| BSPC  | GUI   |
 			bindings = <
-&kp ESC   &kp N1 &kp N2 &kp N3   &kp N4   &kp N5                               &kp N6     &kp N7   &kp N8    &kp N9  &kp N0   &kp MINUS
-&kp TAB   &kp Q  &kp W  &kp E    &kp R    &kp T                                &kp Y      &kp U    &kp I     &kp O   &kp P    &kp LBKT
-&kp LCTRL &kp A  &kp S  &kp D    &kp F    &kp G                                &kp H      &kp J    &kp K     &kp L   &kp SEMI &kp SQT
-&kp LSHFT &kp Z  &kp X  &kp C    &kp V    &kp B     &kp C_VOL_DN  &kp C_VOL_UP &kp N      &kp M    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                        &kp LALT &kp LGUI &mo LOWER &kp SPACE     &kp RET      &mo RAISE  &kp BSPC &kp RGUI
+&kp ESC   &kp N1 &kp N2 &kp N3   &kp N4   &kp N5                            &kp N6     &kp N7   &kp N8    &kp N9  &kp N0   &kp MINUS
+&kp TAB   &kp Q  &kp W  &kp E    &kp R    &kp T                             &kp Y      &kp U    &kp I     &kp O   &kp P    &kp LBKT
+&kp LCTRL &kp A  &kp S  &kp D    &kp F    &kp G                             &kp H      &kp J    &kp K     &kp L   &kp SEMI &kp SQT
+&kp LSHFT &kp Z  &kp X  &kp C    &kp V    &kp B     &tog MEDIA  &tog NUMPAD &kp N      &kp M    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
+                        &kp LALT &kp LGUI &mo LOWER &kp SPACE   &kp RET     &mo RAISE  &kp BSPC &kp RGUI
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -56,23 +57,23 @@
 
 		colemak_layer {
 // --ENGLISH---------------------------------------------------------------------------------------------------
-// |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   -   |
-// |  TAB  |  Q  |  W  |  F   |  P   |  B   |                   |  J   |  L    |  U    |  Y   |   ;   |  "["  |
-// |  CTRL |  A  |  R  |  S   |  T   |  G   |                   |  M   |  N    |  E    |  I   |   O   |   '   |
-// | SHIFT |  Z  |  X  |  C   |  D   |  V   |  VOL-  |  |  VOL+ |  K   |  H    |  ,    |  .   |   /   | SHIFT |
-//                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   |
+// |  ESC  |  1  |  2  |  3   |  4   |  5   |                    |  6   |  7    |  8    |  9   |   0   |   -   |
+// |  TAB  |  Q  |  W  |  F   |  P   |  B   |                    |  J   |  L    |  U    |  Y   |   ;   |  "["  |
+// |  CTRL |  A  |  R  |  S   |  T   |  G   |                    |  M   |  N    |  E    |  I   |   O   |   '   |
+// | SHIFT |  Z  |  X  |  C   |  D   |  V   |  MEDIA |  | NUMPAD |  K   |  H    |  ,    |  .   |   /   | SHIFT |
+//                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER  | RAISE| BSPC  | GUI   |
 // --ICELANDIC-------------------------------------------------------------------------------------------------
-// |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   Ö   |
-// |  TAB  |  Q  |  W  |  F   |  P   |  B   |                   |  J   |  L    |  U    |  Y   |   Æ   |   Ð   |
-// |  CTRL |  A  |  R  |  S   |  T   |  G   |                   |  M   |  N    |  E    |  I   |   O   |   ´   |
-// | SHIFT |  Z  |  X  |  C   |  D   |  V   |  VOL-  |  |  VOL+ |  K   |  H    |  ,    |  .   |   Þ   | SHIFT |
-//                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   |
+// |  ESC  |  1  |  2  |  3   |  4   |  5   |                    |  6   |  7    |  8    |  9   |   0   |   Ö   |
+// |  TAB  |  Q  |  W  |  F   |  P   |  B   |                    |  J   |  L    |  U    |  Y   |   Æ   |   Ð   |
+// |  CTRL |  A  |  R  |  S   |  T   |  G   |                    |  M   |  N    |  E    |  I   |   O   |   ´   |
+// | SHIFT |  Z  |  X  |  C   |  D   |  V   |  MEDIA |  | NUMPAD |  K   |  H    |  ,    |  .   |   Þ   | SHIFT |
+//                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER  | RAISE| BSPC  | GUI   |
 			bindings = <
-&kp ESC   &kp N1 &kp N2 &kp N3   &kp N4   &kp N5                               &kp N6     &kp N7   &kp N8    &kp N9  &kp N0   &kp MINUS
-&kp TAB   &kp Q  &kp W  &kp F    &kp P    &kp B                                &kp J      &kp L    &kp U     &kp Y   &kp SEMI &kp LBKT
-&kp LCTRL &kp A  &kp R  &kp S    &kp T    &kp G                                &kp M      &kp N    &kp E     &kp I   &kp O    &kp SQT
-&kp LSHFT &kp Z  &kp X  &kp C    &kp D    &kp V     &kp C_VOL_DN  &kp C_VOL_UP &kp K      &kp H    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                        &kp LALT &kp LGUI &mo LOWER &kp SPACE     &kp RET      &mo RAISE  &kp BSPC &kp RGUI
+&kp ESC   &kp N1 &kp N2 &kp N3   &kp N4   &kp N5                            &kp N6     &kp N7   &kp N8    &kp N9  &kp N0   &kp MINUS
+&kp TAB   &kp Q  &kp W  &kp F    &kp P    &kp B                             &kp J      &kp L    &kp U     &kp Y   &kp SEMI &kp LBKT
+&kp LCTRL &kp A  &kp R  &kp S    &kp T    &kp G                             &kp M      &kp N    &kp E     &kp I   &kp O    &kp SQT
+&kp LSHFT &kp Z  &kp X  &kp C    &kp D    &kp V     &tog MEDIA  &tog NUMPAD &kp K      &kp H    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
+                        &kp LALT &kp LGUI &mo LOWER &kp SPACE   &kp RET     &mo RAISE  &kp BSPC &kp RGUI
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -80,65 +81,77 @@
 
 		numpad_layer {
 // ------------------------------------------------------------------------------------------------------------
-// |       |  1  |  2  |  3  |  4  |  5  |                    |  6   |   7   |   8   |  9   |   0   |       |
-// |       |     |  ^  |     |     |     |                    |      |   4   |   5   |  6   |       |       |
-// |       |  <- |  v  | ->  |     |     |                    |      |   1   |   2   |  3   |   ^   |       |
-// |       |     |     |     |     |     |        |  | Numpad |      |   0   |       |  <-  |   v   |  ->   |
+// |       |     |     |     |     |     |                    |      |   7   |   8   |  9   |   (   |   )   |
+// |       |     |  ^  |     |     |     |                    |      |   4   |   5   |  6   |   -   |   =   |
+// |       |  <- |  v  | ->  |     |     |                    |      |   1   |   2   |  3   |   +   |   *   |
+// |       |     |     |     |     |     |        |  | Numpad |      |   0   |   ,   |  .   |   /   |       |
 //                     |     |     |     |        |  |        |      |       |       |
 			bindings = <
-&trans &kp N1   &kp N2   &kp N3    &kp N4 &kp N5                     &kp N6 &kp N7 &kp N8 &kp N9   &kp N0   &trans
-&trans &trans   &kp UP   &trans    &trans &trans                     &trans &kp N4 &kp N5 &kp N6   &trans   &trans
-&trans &kp LEFT &kp DOWN &kp RIGHT &trans &trans                     &trans &kp N1 &kp N2 &kp N3   &kp UP   &trans
-&trans &trans   &trans   &trans    &trans &trans &trans  &tog NUMPAD &trans &kp N0 &trans &kp LEFT &kp DOWN &kp RIGHT
-                         &trans    &trans &trans &trans  &trans      &trans &trans &trans
+&trans &trans   &trans   &trans    &trans &trans                     &trans &kp KP_N7 &kp KP_N8    &kp KP_N9  &kp KP_LPAR  &kp KP_RPAR
+&trans &trans   &kp UP   &trans    &trans &trans                     &trans &kp KP_N4 &kp KP_N5    &kp KP_N6  &kp KP_MINUS &kp KP_EQUAL
+&trans &kp LEFT &kp DOWN &kp RIGHT &trans &trans                     &trans &kp KP_N1 &kp KP_N2    &kp KP_N3  &kp KP_PLUS  &kp KP_MULTIPLY
+&trans &trans   &trans   &trans    &trans &trans &trans  &tog NUMPAD &trans &kp KP_N0 &kp KP_COMMA &kp KP_DOT &kp KP_SLASH &trans
+                         &trans    &trans &trans &trans  &trans      &trans &trans    &trans
+			>;
+
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+		};
+
+		media_layer {
+// ------------------------------------------------------------------------------------------------------------
+// |       |      |      |      |      | PWR  |                  |      |      |      |      |       |       |
+// |       | SUN+ | MUTE | VOL- | VOL+ | Subs |                  |      |      |      |      |       |       |
+// |       | SUN- |  <<  | Play |  >>  |      |                  |      |      |      |      |       |       |
+// |       |  <-  |  v   |   ^  |  ->  |      |        |  |      |      |      |      |      |       |       |
+//                       |      |      |      |        |  |      |      |      |      |
+			bindings = <
+&trans &trans       &trans     &trans       &trans       &kp C_PWR                     &trans &trans &trans &trans &trans &trans
+&trans &kp C_BRI_UP &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &kp C_CAPTIONS                &trans &trans &trans &trans &trans &trans
+&trans &kp C_BRI_DN &kp C_PREV &kp C_PP     &kp C_NEXT   &trans                        &trans &trans &trans &trans &trans &trans
+&trans &kp LEFT     &kp DOWN   &kp UP       &kp RIGHT    &trans    &tog MEDIA  &trans  &trans &trans &trans &trans &trans &trans
+                               &trans       &trans       &trans    &trans      &trans  &trans &trans &trans
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
 
 		lower_layer {
-// --ENGLISH---------------------------------------------------------------------------------------------------
-// | BTCLR | BT1 | BT2 | BT3 | BT4 | BT5  |                    |      |       |       |  ON  |  OFF  |  TOG  |
-// |       |     |     |     |     |      |                    |      |       |       |      |       |       |
-// |   `   |  !  |  @  |  #  |  $  |  %   |                    |  ^   |  &    |  *    |  (   |   )   |   ~   |
-// |       |     |     |     |     |      | Colemak |  |       |      |  _    |  +    |  {   |   }   |  "|"  |
-//                     |     |     |      |         |  |       |      |       |       |
+// --ENGLISH (Can´t be bothered to update both halves for English layout) -------------------------------------
+// | BTCLR | BT1 | BT2 | BT3 | BT4 | BT5  |                    |      |       |       |      |       |       |
+// ...
 // --ICELANDIC-------------------------------------------------------------------------------------------------
-// | BTCLR | BT1 | BT2 | BT3 | BT4 | BT5 |                     |      |       |       |  ON  |  OFF  |  TOG  |
-// |       |     |     |     |     |     |                     |      |       |       |      |       |       |
-// |   <   |  !  |  "  |  #  |  $  |  %  |                     |  &   |  /    |  *    |  )   |   =   |   >   |
-// |       |     |     |     |     |     | Colemak |  |        |      |  ö    |  +    |  Ð   |   ?   |   *   |
-//                     |     |     |     |         |  |        |      |       |       |
+// | BTCLR | BT1 | BT2 | BT3 | BT4 | BT5 |                     |      |       |       |  ≤   |   ≥   |       |
+// |       |  "  |  |  |  =  |  *  |  ^  |                     |      |   [   |   ]   |  <   |   >   |   =   |
+// |       |  '  |  /  |  -  |  +  |  #  |                     |      |   (   |   )   |  {   |   }   |   ~   |
+// |       |  `  |  \  |  _  |  ±  |  &  | Colemak |  |        |      |       |   ;   |  :   |   ?   |       |
+//                     |     |     |     |         |  |        |      |  DEL  |       |
 			bindings = <
-&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                   &trans    &trans    &trans          &ext_power EP_ON &ext_power EP_OFF &ext_power EP_TOG
-&trans     &trans       &trans       &trans       &trans       &trans                         &trans    &trans    &trans          &trans           &trans            &trans
-&kp GRAVE  &kp EXCL     &kp AT       &kp HASH     &kp DOLLAR   &kp PRCNT                      &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR         &kp RPAR          &kp TILDE
-&trans     &trans       &trans       &trans       &trans       &trans   &tog COLEMAK  &trans  &trans    &kp MINUS &kp KP_PLUS     &kp LBRC         &kp RBRC          &kp PIPE
-                                     &trans       &trans       &trans   &trans        &trans  &trans    &trans    &trans
+&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3     &bt BT_SEL 4                    &trans &trans     &trans     &trans     &trans     &trans
+&trans     &kp AT       &kp LA(GRAVE) &kp RPAR      &kp PIPE         &kp LA(N6)                      &trans &kp LA(N8) &kp LA(N9) &kp GRAVE  &kp TILDE  &kp RPAR
+&trans     &kp RBKT     &kp AMPS      &kp EQUAL     &kp BSLH         &kp HASH                        &trans &kp LS(N8) &kp LS(N9) &kp LA(N7) &kp LA(N0) &kp LA(RBKT)
+&trans     &kp LA(BSLH) &kp LA(MINUS) &kp LS(EQUAL) &kp LA(LS(BSLH)) &kp CARET &tog COLEMAK  &trans  &trans &trans     &trans     &trans     &trans     &trans
+                                      &trans        &trans           &trans    &trans        &trans  &trans &kp DEL    &trans
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
 
 		raise_layer {
-// --ENGLISH---------------------------------------------------------------------------------------------------
-// |  F1   |  F2 |  F3 |  F4  |  F5  |  F6  |                    |  F7  |  F8   |  F9   | F10  |  F11  |  F12  |
-// |   `   |  1  |  2  |  3   |  4   |  5   |                    |  6   |   7   |   8   |  9   |   0   |       |
-// |       |     |     |      |      |      |                    |  <-  |   v   |   ^   | ->   |       |       |
-// |       |     |     |      |      |      |        |  | Numpad |  +   |   -   |   =   |  [   |   ]   |   \   |
-//                     |      |      |      |        |  |        |      |       |       |
+// --ENGLISH (Can´t be bothered to update both halves for English layout) -------------------------------------
+// |       |  F1 |  F2 |  F3 |  F4 |  F5  |                    |  F6  |   F7  |  F8   |  F9  |  F10  |  F11  |
+// ...
 // --ICELANDIC---------------------------------------------------------------------------------------------------
-// |  F1   |  F2 |  F3 |  F4  |  F5  |  F6  |                    |  F7  |  F8   |  F9   | F10  |  F11  |  F12  |
-// |   <   |  1  |  2  |  3   |  4   |  5   |                    |  6   |   7   |   8   |  9   |   0   |       |
-// |       |     |     |      |      |      |                    |  <-  |   v   |   ^   | ->   |       |       |
-// |       |     |     |      |      |      |        |  | Numpad |  +   |   ö   |   -   |  ð   |   '   |   +   |
-//                     |      |      |      |        |  |        |      |       |       |
+// |       |  F1 |  F2 |  F3 |  F4 |  F5  |                    |  F6  |   F7  |  F8   |  F9  |  F10  |  F11  |
+// |       |  @  |  £  |  €  |  $  |  ¥   |                    |      |       |       |      |       |  F12  |
+// |       |  !  |  ?  |  ;  |  :  |  #   |                    |  <-  |   v   |   ^   | ->   |       |       |
+// |       |  ¡  |  ¿  | VOL-| VOL+|  &   |        |  |        | HOME | PG DN | PG UP | END  |       |       |
+//                     |     |     |      |        |  |        |      |       |       |
 			bindings = <
-&kp F1    &kp F2 &kp F3 &kp F4 &kp F5 &kp F6                      &kp F7      &kp F8    &kp F9    &kp F10   &kp F11  &kp F12
-&kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                      &kp N6      &kp N7    &kp N8    &kp N9    &kp N0   &trans
-&trans    &trans &trans &trans &trans &trans                      &kp LEFT    &kp DOWN  &kp UP    &kp RIGHT &trans   &trans
-&trans    &trans &trans &trans &trans &trans &trans   &tog NUMPAD &kp KP_PLUS &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp BSLH
-                        &trans &trans &trans &trans   &trans      &trans      &trans    &trans
+&trans &kp F1     &kp F2         &kp F3        &kp F4      &kp F5                     &kp F6   &kp F7    &kp F8    &kp F9    &kp F10 &kp F11 
+&trans &kp LA(Q)  &kp LS(LA(N3)) &kp LA(E)    &kp LS(N4)  &kp LA(Y)                  &trans   &trans    &trans    &trans    &trans  &kp F12
+&trans &kp LS(N1) &kp RBRC       &kp LS(COMMA) &kp LS(DOT) &kp LS(N3)                 &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &trans  &trans
+&trans &kp LA(N1) &kp LS(LA(E))  &kp C_VOL_DN &kp C_VOL_UP &kp LS(N6) &trans   &trans &kp HOME &kp PG_DN &kp PG_UP &kp END   &trans  &trans
+                                 &trans        &trans      &trans     &trans   &trans &trans   &kp DEL   &trans
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -174,16 +187,21 @@
  * |    "    |  AT                  | 
  * |    #    |  HASH                |   
  * |    $    |  DOLLAR              |     
+ * |    £    |  LS(LA(N3)           |     
  * |    %    |  PRCNT               |    
  * |    &    |  CARET               |    
  * |    *    |  KP_MULTIPLY or PIPE |
  * |    =    |  RPAR                |     
+ * |    ~    |  LA(RBKT)
  * |    -    |  EQUAL               |     
  * |    +    |  KP_PLUS or BSLH     |              
+ * |    ±    |  LA(LS(BSLH))        |              
  * |    ?    |  RBRC                |     
  * |    ´    |  SQT                 | Note: Dead key
  * |    '    |  RBKT                |   
  * |    ’    |  LA(FSLH)            |       
  * |    `    |  LA(BSLH)            | Note: Dead key
+ * |    ≤    |  LA(COMMA)           |
+ * |    ≥    |  LA(DOT)             |
  * |---------|----------------------| 
  */
