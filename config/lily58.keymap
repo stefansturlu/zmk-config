@@ -45,10 +45,10 @@
 // | SHIFT |  Z  |  X  |  C   |  V   |  B   |  MEDIA |  | NUMPAD |  N   |  M    |  ,    |  .   |   Þ   | SHIFT |
 //                     | ALT  | GUI  | LOWER|  SPACE |  |  ENTER | RAISE| BSPC  | GUI   |
 			bindings = <
-&kp ESC   &kp N1 &kp N2 &kp N3   &kp N4   &kp N5                            &kp N6     &kp N7   &kp N8    &kp N9  &kp N0   &kp MINUS
-&kp TAB   &kp Q  &kp W  &kp E    &kp R    &kp T                             &kp Y      &kp U    &kp I     &kp O   &kp P    &kp LBKT
-&kp LCTRL &kp A  &kp S  &kp D    &kp F    &kp G                             &kp H      &kp J    &kp K     &kp L   &kp SEMI &kp SQT
-&kp LSHFT &kp Z  &kp X  &kp C    &kp V    &kp B     &tog MEDIA  &tog NUMPAD &kp N      &kp M    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
+&kp ESC       &kp N1 &kp N2 &kp N3   &kp N4   &kp N5                            &kp N6     &kp N7   &kp N8    &kp N9  &kp N0   &kp MINUS
+&kp TAB       &kp Q  &kp W  &kp E    &kp R    &kp T                             &kp Y      &kp U    &kp I     &kp O   &kp P    &kp LBKT
+&mt LCTRL ESC &kp A  &kp S  &kp D    &kp F    &kp G                             &kp H      &kp J    &kp K     &kp L   &kp SEMI &kp SQT
+&kp LSHFT     &kp Z  &kp X  &kp C    &kp V    &kp B     &tog MEDIA  &tog NUMPAD &kp N      &kp M    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
                         &kp LALT &kp LGUI &mo LOWER &kp SPACE   &kp RET     &mo RAISE  &kp BSPC &kp RGUI
 			>;
 
@@ -69,10 +69,10 @@
 // | SHIFT |  Z  |  X  |  C   |  D   |  V   |  MEDIA |  | NUMPAD |  K   |  H    |  ,    |  .   |   Þ   | SHIFT |
 //                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER  | RAISE| BSPC  | GUI   |
 			bindings = <
-&kp ESC   &kp N1 &kp N2 &kp N3   &kp N4   &kp N5                            &kp N6     &kp N7   &kp N8    &kp N9  &kp N0   &kp MINUS
-&kp TAB   &kp Q  &kp W  &kp F    &kp P    &kp B                             &kp J      &kp L    &kp U     &kp Y   &kp SEMI &kp LBKT
-&kp LCTRL &kp A  &kp R  &kp S    &kp T    &kp G                             &kp M      &kp N    &kp E     &kp I   &kp O    &kp SQT
-&kp LSHFT &kp Z  &kp X  &kp C    &kp D    &kp V     &tog MEDIA  &tog NUMPAD &kp K      &kp H    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
+&kp ESC       &kp N1 &kp N2 &kp N3   &kp N4   &kp N5                            &kp N6     &kp N7   &kp N8    &kp N9  &kp N0   &kp MINUS
+&kp TAB       &kp Q  &kp W  &kp F    &kp P    &kp B                             &kp J      &kp L    &kp U     &kp Y   &kp SEMI &kp LBKT
+&mt LCTRL ESC &kp A  &kp R  &kp S    &kp T    &kp G                             &kp M      &kp N    &kp E     &kp I   &kp O    &kp SQT
+&kp LSHFT     &kp Z  &kp X  &kp C    &kp D    &kp V     &tog MEDIA  &tog NUMPAD &kp K      &kp H    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
                         &kp LALT &kp LGUI &mo LOWER &kp SPACE   &kp RET     &mo RAISE  &kp BSPC &kp RGUI
 			>;
 
@@ -87,10 +87,10 @@
 // |       |     |     |     |     |     |        |  | Numpad |      |   0   |   ,   |  .   |   /   |       |
 //                     |     |     |     |        |  |        |      |       |       |
 			bindings = <
-&trans &trans   &trans   &trans    &trans &trans                     &trans &kp KP_N7 &kp KP_N8    &kp KP_N9  &kp KP_LPAR  &kp KP_RPAR
-&trans &trans   &kp UP   &trans    &trans &trans                     &trans &kp KP_N4 &kp KP_N5    &kp KP_N6  &kp KP_MINUS &kp KP_EQUAL
-&trans &kp LEFT &kp DOWN &kp RIGHT &trans &trans                     &trans &kp KP_N1 &kp KP_N2    &kp KP_N3  &kp KP_PLUS  &kp KP_MULTIPLY
-&trans &trans   &trans   &trans    &trans &trans &trans  &tog NUMPAD &trans &kp KP_N0 &kp KP_COMMA &kp KP_DOT &kp KP_SLASH &trans
+&trans &trans   &trans   &trans    &trans &trans                     &trans &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp LS(N8)   &kp LS(N9)
+&trans &trans   &kp UP   &trans    &trans &trans                     &trans &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_MINUS &kp KP_EQUAL
+&trans &kp LEFT &kp DOWN &kp RIGHT &trans &trans                     &trans &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_PLUS  &kp KP_MULTIPLY
+&trans &trans   &trans   &trans    &trans &trans &trans  &tog NUMPAD &trans &kp KP_N0 &trans    &trans    &kp KP_SLASH &trans
                          &trans    &trans &trans &trans  &trans      &trans &trans    &trans
 			>;
 
@@ -126,10 +126,10 @@
 // |       |  `  |  \  |  _  |  ±  |  &  | Colemak |  |        |      |       |   ;   |  :   |   ?   |       |
 //                     |     |     |     |         |  |        |      |  DEL  |       |
 			bindings = <
-&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3     &bt BT_SEL 4                    &trans &trans     &trans      &kp LA(COMMA) &kp LA(DOT)   &trans
-&trans     &kp AT       &kp LA(GRAVE) &kp RPAR      &kp PIPE         &kp LA(N6)                      &trans &kp LA(N8) &kp LA(N9)  &kp GRAVE     &kp LS(GRAVE) &kp RPAR
-&trans     &kp RBKT     &kp AMPS      &kp EQUAL     &kp BSLH         &kp HASH                        &trans &kp LS(N8) &kp LS(N9)  &kp LA(N7)    &kp LA(N0)    &kp LA(RBKT)
-&trans     &kp LA(BSLH) &kp LA(MINUS) &kp LS(EQUAL) &kp LA(LS(BSLH)) &kp CARET &tog COLEMAK  &trans  &trans &trans     &kp LS(DOT) &kp LS(COMMA) &kp RBRC      &trans
+&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3     &bt BT_SEL 4                    &trans &trans     &trans        &kp LA(COMMA) &kp LA(DOT)   &trans
+&trans     &kp AT       &kp LA(GRAVE) &kp RPAR      &kp PIPE         &kp LA(N6)                      &trans &kp LA(N8) &kp LA(N9)    &kp GRAVE     &kp LS(GRAVE) &kp RPAR
+&trans     &kp RBKT     &kp AMPS      &kp EQUAL     &kp BSLH         &kp HASH                        &trans &kp LS(N8) &kp LS(N9)    &kp LA(N7)    &kp LA(N0)    &kp LA(RBKT)
+&trans     &kp LA(BSLH) &kp LA(MINUS) &kp LS(EQUAL) &kp LA(LS(BSLH)) &kp CARET &tog COLEMAK  &trans  &trans &trans     &kp LS(COMMA) &kp LS(DOT)   &kp RBRC      &trans
                                       &trans        &trans           &trans    &trans        &trans  &trans &kp DEL    &trans
 			>;
 
