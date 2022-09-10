@@ -10,8 +10,8 @@
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/mouse.h>
 
-#define DEFAULT 0
-#define COLEMAK 1
+#define COLEMAK 0
+#define QWERTY 1
 #define NUMPAD 2
 #define MEDIA 3
 #define LOWER 4
@@ -43,30 +43,6 @@
  * See symbols at bottom of file
  */
 
-		default_layer {
-// --ENGLISH---------------------------------------------------------------------------------------------------
-// |  ESC  |  1  |  2  |  3   |  4   |  5   |                    |  6   |  7    |  8    |  9   |   0   |   -   |
-// |  TAB  |  Q  |  W  |  E   |  R   |  T   |                    |  Y   |  U    |  I    |  O   |   P   |  "["  |
-// |  CTRL |  A  |  S  |  D   |  F   |  G   |                    |  H   |  J    |  K    |  L   |   ;   |   '   |
-// | SHIFT |  Z  |  X  |  C   |  V   |  B   |  MEDIA |  | NUMPAD |  N   |  M    |  ,    |  .   |   /   | SHIFT |
-//                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER  | RAISE| BSPC  | GUI   |
-// --ICELANDIC-------------------------------------------------------------------------------------------------
-// |  ESC  |  1  |  2  |  3   |  4   |  5   |                    |  6   |  7    |  8    |  9   |   0   |   Ö   |
-// |  TAB  |  Q  |  W  |  E   |  R   |  T   |                    |  Y   |  U    |  I    |  O   |   P   |   Ð   |
-// |  CTRL |  A  |  S  |  D   |  F   |  G   |                    |  H   |  J    |  K    |  L   |   Æ   |   ´   |
-// | SHIFT |  Z  |  X  |  C   |  V   |  B   |  MEDIA |  | NUMPAD |  N   |  M    |  ,    |  .   |   Þ   | SHIFT |
-//                     | ALT  | GUI  | LOWER|  SPACE |  |  ENTER | RAISE| BSPC  | GUI   |
-			bindings = <
-&kp ESC       &kp N1 &kp N2 &kp N3   &kp N4   &kp N5                            &kp N6     &kp N7   &kp N8    &kp N9  &kp N0   &kp MINUS
-&kp TAB       &kp Q  &kp W  &kp E    &kp R    &kp T                             &kp Y      &kp U    &kp I     &kp O   &kp P    &kp LBKT
-&mt LCTRL ESC &kp A  &kp S  &kp D    &kp F    &kp G                             &kp H      &kp J    &kp K     &kp L   &kp SEMI &kp SQT
-&kp LSHFT     &kp Z  &kp X  &kp C    &kp V    &kp B     &tog MEDIA  &tog NUMPAD &kp N      &kp M    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                        &kp LALT &kp LGUI &mo LOWER &kp SPACE   &kp RET     &mo RAISE  &kp BSPC &kp RGUI
-			>;
-
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-		};
-
 		colemak_layer {
 // --ENGLISH---------------------------------------------------------------------------------------------------
 // |  ESC  |  1  |  2  |  3   |  4   |  5   |                    |  6   |  7    |  8    |  9   |   0   |   -   |
@@ -85,6 +61,30 @@
 &kp TAB       &kp Q  &kp W  &kp F    &kp P    &kp B                             &kp J      &kp L    &kp U     &kp Y   &kp SEMI &kp LBKT
 &mt LCTRL ESC &kp A  &kp R  &kp S    &kp T    &kp G                             &kp M      &kp N    &kp E     &kp I   &kp O    &kp SQT
 &kp LSHFT     &kp Z  &kp X  &kp C    &kp D    &kp V     &tog MEDIA  &tog NUMPAD &kp K      &kp H    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
+                        &kp LALT &kp LGUI &mo LOWER &kp SPACE   &kp RET     &mo RAISE  &kp BSPC &kp RGUI
+			>;
+
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+		};
+		
+		qwerty_layer {
+// --ENGLISH---------------------------------------------------------------------------------------------------
+// |  ESC  |  1  |  2  |  3   |  4   |  5   |                    |  6   |  7    |  8    |  9   |   0   |   -   |
+// |  TAB  |  Q  |  W  |  E   |  R   |  T   |                    |  Y   |  U    |  I    |  O   |   P   |  "["  |
+// |  CTRL |  A  |  S  |  D   |  F   |  G   |                    |  H   |  J    |  K    |  L   |   ;   |   '   |
+// | SHIFT |  Z  |  X  |  C   |  V   |  B   |  MEDIA |  | NUMPAD |  N   |  M    |  ,    |  .   |   /   | SHIFT |
+//                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER  | RAISE| BSPC  | GUI   |
+// --ICELANDIC-------------------------------------------------------------------------------------------------
+// |  ESC  |  1  |  2  |  3   |  4   |  5   |                    |  6   |  7    |  8    |  9   |   0   |   Ö   |
+// |  TAB  |  Q  |  W  |  E   |  R   |  T   |                    |  Y   |  U    |  I    |  O   |   P   |   Ð   |
+// |  CTRL |  A  |  S  |  D   |  F   |  G   |                    |  H   |  J    |  K    |  L   |   Æ   |   ´   |
+// | SHIFT |  Z  |  X  |  C   |  V   |  B   |  MEDIA |  | NUMPAD |  N   |  M    |  ,    |  .   |   Þ   | SHIFT |
+//                     | ALT  | GUI  | LOWER|  SPACE |  |  ENTER | RAISE| BSPC  | GUI   |
+			bindings = <
+&kp ESC       &kp N1 &kp N2 &kp N3   &kp N4   &kp N5                            &kp N6     &kp N7   &kp N8    &kp N9  &kp N0   &kp MINUS
+&kp TAB       &kp Q  &kp W  &kp E    &kp R    &kp T                             &kp Y      &kp U    &kp I     &kp O   &kp P    &kp LBKT
+&mt LCTRL ESC &kp A  &kp S  &kp D    &kp F    &kp G                             &kp H      &kp J    &kp K     &kp L   &kp SEMI &kp SQT
+&kp LSHFT     &kp Z  &kp X  &kp C    &kp V    &kp B     &tog MEDIA  &tog NUMPAD &kp N      &kp M    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
                         &kp LALT &kp LGUI &mo LOWER &kp SPACE   &kp RET     &mo RAISE  &kp BSPC &kp RGUI
 			>;
 
@@ -135,13 +135,13 @@
 // | BTCLR | BT1 | BT2 | BT3 | BT4 | BT5 |                     |      |       |       |  ≤   |   ≥   |       |
 // |       |  "  |  |  |  =  |  *  |  ^  |                     |      |   [   |   ]   |  <   |   >   |   =   |
 // |       |  '  |  /  |  -  |  +  |  #  |                     |      |   (   |   )   |  {   |   }   |   ~   |
-// |       |  `  |  \  |  _  |  ±  |  &  | Colemak |  |        |      |       |   ;   |  :   |   ?   |       |
+// |       |  `  |  \  |  _  |  ±  |  &  | QWERTY  |  |        |      |       |   ;   |  :   |   ?   |       |
 //                     |     |     |     |         |  |        |      |  DEL  |       |
 			bindings = <
 &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3     &bt BT_SEL 4                    &trans &trans     &trans        &kp LA(COMMA) &kp LA(DOT)   &trans
 &trans     &kp AT       &kp LA(GRAVE) &kp RPAR      &kp PIPE         &kp LA(N6)                      &trans &kp LA(N8) &kp LA(N9)    &kp GRAVE     &kp LS(GRAVE) &kp RPAR
 &trans     &kp RBKT     &kp AMPS      &kp EQUAL     &kp BSLH         &kp HASH                        &trans &kp LS(N8) &kp LS(N9)    &kp LA(N7)    &kp LA(N0)    &kp LA(RBKT)
-&trans     &kp LA(BSLH) &kp LA(MINUS) &kp LS(EQUAL) &kp LA(LS(BSLH)) &kp CARET &tog COLEMAK  &trans  &trans &trans     &kp LS(COMMA) &kp LS(DOT)   &kp RBRC      &trans
+&trans     &kp LA(BSLH) &kp LA(MINUS) &kp LS(EQUAL) &kp LA(LS(BSLH)) &kp CARET &tog QWERTY   &trans  &trans &trans     &kp LS(COMMA) &kp LS(DOT)   &kp RBRC      &trans
                                       &trans        &trans           &trans    &trans        &trans  &trans &kp DEL    &trans
 			>;
 
