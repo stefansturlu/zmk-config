@@ -94,16 +94,16 @@
 		numpad_layer {
 // ------------------------------------------------------------------------------------------------------------
 // |       |     |     |     |     |     |                    |      |   7   |   8   |  9   |   (   |   )   |
-// |       |     |  ^  |     |     |     |                    |      |   4   |   5   |  6   |   -   |   =   |
-// |       |  <- |  v  | ->  |     |     |                    |      |   1   |   2   |  3   |   +   |   *   |
+// |       |     |     |     |     |     |                    |      |   4   |   5   |  6   |   -   |   =   |
+// |       |     |     |     |     |     |                    |      |   1   |   2   |  3   |   +   |   *   |
 // |       |     |     |     |     |     |        |  | Numpad |      |   0   |   ,   |  .   |   /   |       |
 //                     |     |     |     |        |  |        |      |       |       |
 			bindings = <
-&trans &trans   &trans   &trans    &trans &trans                     &trans &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp LS(N8)   &kp LS(N9)
-&trans &trans   &kp UP   &trans    &trans &trans                     &trans &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_MINUS &kp KP_EQUAL
-&trans &kp LEFT &kp DOWN &kp RIGHT &trans &trans                     &trans &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_PLUS  &kp KP_MULTIPLY
-&trans &trans   &trans   &trans    &trans &trans &trans  &tog NUMPAD &trans &kp KP_N0 &trans    &trans    &kp KP_SLASH &trans
-                         &trans    &trans &trans &trans  &trans      &trans &trans    &trans
+&trans &trans &trans &trans &trans &trans                     &trans       &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp LS(N8)   &kp LS(N9)
+&trans &trans &trans &trans &trans &trans                     &kp C_VOL_UP &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_MINUS &kp KP_EQUAL
+&trans &trans &trans &trans &trans &trans                     &kp C_VOL_DN &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_PLUS  &kp KP_MULTIPLY
+&trans &trans &trans &trans &trans &trans &trans  &tog NUMPAD &kp C_MUTE   &kp KP_N0 &trans    &trans    &kp KP_SLASH &trans
+                  &trans    &trans &trans &trans  &trans      &trans       &trans    &trans
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
