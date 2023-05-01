@@ -29,6 +29,18 @@
 };
 
 / {
+    behaviors {
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            quick-tap-ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+    };
+
 	keymap {
 		compatible = "zmk,keymap";
 
@@ -59,7 +71,7 @@
 			bindings = <
 &kp ESC       &kp N        &kp N2      &kp N3      &kp N4        &kp N5                           &kp N6     &kp N7        &kp N8      &kp N9      &kp N0       &kp MINUS
 &kp TAB       &kp Q        &kp W       &kp F       &kp P         &kp B                            &kp J      &kp L         &kp U       &kp Y       &kp SEMI     &kp LBKT
-&mt LCTRL ESC &mt LCTRL A  &mt LALT R  &mt LGUI S  &mt LSHIFT T  &kp G                            &kp M      &mt RSHIFT N  &mt RGUI E  &mt RALT I  &mt LCTRL O  &kp SQT
+&mt LCTRL ESC &hm LCTRL A  &hm LALT R  &hm LGUI S  &hm LSHIFT T  &kp G                            &kp M      &hm RSHIFT N  &hm RGUI E  &hm RALT I  &hm LCTRL O  &kp SQT
 &kp LSHFT     &kp Z        &kp X       &kp C       &kp D         &kp V    &tog MEDIA  &tog NUMPAD &kp K      &kp H         &kp COMMA   &kp DOT     &kp FSLH     &kp RSHFT
                                 &kp LALT   &kp LGUI    &mo LOWER          &kp SPACE   &kp RET         &mo RAISE    &kp BSPC    &kp RGUI
 			>;
