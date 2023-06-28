@@ -77,7 +77,7 @@
 &kp TAB       &kp Q        &kp W       &kp F       &kp P         &kp B                                &kp J      &kp L         &kp U       &kp Y       &kp LBKT     &kp SEMI
 &mt LCTRL ESC &hm LCTRL A  &hm LALT R  &hm LGUI S  &hm LSHIFT T  &kp G                                &kp M      &hm RSHIFT N  &hm RGUI E  &hm RALT I  &hm LCTRL O  &kp SQT
 &kp LSHFT     &kp Z        &kp X       &kp C       &kp D         &kp V  &tog MEDIA      &tog NUMPAD   &kp K      &kp H         &kp COMMA   &kp DOT     &kp FSLH     &kp RSHFT
-                             &kp LALT  &mt F_KEYS ESC  &mt SYM_R SPACE  &mt NUMPAD TAB  &mt ARROW RET &mt SYM_L BSPC  &mt MOUSE SQT  &kp RGUI
+                             &kp LALT  &lt F_KEYS ESC  &lt SYM_R SPACE  &lt NUMPAD TAB  &lt ARROW RET &lt SYM_L BSPC  &lt MOUSE SQT  &kp RGUI
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
