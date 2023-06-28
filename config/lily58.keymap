@@ -14,8 +14,11 @@
 #define QWERTY 1
 #define NUMPAD 2
 #define MEDIA 3
-#define LOWER 4
-#define RAISE 5
+#define SYM_R 4
+#define SYM_L 5
+#define ARROW 6
+#define MOUSE 7
+#define F_KEYS 8
 
 / {
     combos {
@@ -41,8 +44,8 @@
         };
     };
 
-	keymap {
-		compatible = "zmk,keymap";
+    keymap {
+        compatible = "zmk,keymap";
 
 /*
  * Icelandic letter bindings 
@@ -55,133 +58,182 @@
  * See symbols at bottom of file
  */
 
-		colemak_layer {
+        colemak_layer {
 // --ENGLISH---------------------------------------------------------------------------------------------------
 // |  ESC  |  1  |  2  |  3   |  4   |  5   |                    |  6   |  7    |  8    |  9   |   0   |   -   |
-// |  TAB  |  Q  |  W  |  F   |  P   |  B   |                    |  J   |  L    |  U    |  Y   |   ;   |  "["  |
+// |  TAB  |  Q  |  W  |  F   |  P   |  B   |                    |  J   |  L    |  U    |  Y   |  "["  |   ;   |
 // |  CTRL |  A  |  R  |  S   |  T   |  G   |                    |  M   |  N    |  E    |  I   |   O   |   '   |
 // | SHIFT |  Z  |  X  |  C   |  D   |  V   |  MEDIA |  | NUMPAD |  K   |  H    |  ,    |  .   |   /   | SHIFT |
-//                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER  | RAISE| BSPC  | GUI   |
+//                     | ALT  | GUI  | SYM_R|  SPACE |  | ENTER  | SYM_L| BSPC  | GUI   |
 // --ICELANDIC-------------------------------------------------------------------------------------------------
 // |  ESC  |  1  |  2  |  3   |  4   |  5   |                    |  6   |  7    |  8    |  9   |   0   |   Ö   |
-// |  TAB  |  Q  |  W  |  F   |  P   |  B   |                    |  J   |  L    |  U    |  Y   |   Æ   |   Ð   |
+// |  TAB  |  Q  |  W  |  F   |  P   |  B   |                    |  J   |  L    |  U    |  Y   |   Ð   |   Æ   |
 // |  CTRL |  A  |  R  |  S   |  T   |  G   |                    |  M   |  N    |  E    |  I   |   O   |   ´   |
 // | SHIFT |  Z  |  X  |  C   |  D   |  V   |  MEDIA |  | NUMPAD |  K   |  H    |  ,    |  .   |   Þ   | SHIFT |
-//                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER  | RAISE| BSPC  | GUI   |
-			bindings = <
-&kp ESC       &kp N1       &kp N2      &kp N3      &kp N4        &kp N5                           &kp N6     &kp N7        &kp N8      &kp N9      &kp N0       &kp MINUS
-&kp TAB       &kp Q        &kp W       &kp F       &kp P         &kp B                            &kp J      &kp L         &kp U       &kp Y       &kp SEMI     &kp LBKT
-&mt LCTRL ESC &hm LCTRL A  &hm LALT R  &hm LGUI S  &hm LSHIFT T  &kp G                            &kp M      &hm RSHIFT N  &hm RGUI E  &hm RALT I  &hm LCTRL O  &kp SQT
-&kp LSHFT     &kp Z        &kp X       &kp C       &kp D         &kp V    &tog MEDIA  &tog NUMPAD &kp K      &kp H         &kp COMMA   &kp DOT     &kp FSLH     &kp RSHFT
-                                &kp LALT   &kp LGUI    &mo LOWER          &kp SPACE   &kp RET         &mo RAISE    &kp BSPC    &kp RGUI
-			>;
+// before              | ALT  | GUI  | SYM_R|  SPACE |  | ENTER  | SYM_L| BSPC  | GUI   |
+// after               | ALT  | ESC  | SPACE|   TAB  |  | ENTER  | BSPC |  ´    | GUI |
+            bindings = <
+&kp ESC       &kp N1       &kp N2      &kp N3      &kp N4        &kp N5                               &kp N6     &kp N7        &kp N8      &kp N9      &kp N0       &kp MINUS
+&kp TAB       &kp Q        &kp W       &kp F       &kp P         &kp B                                &kp J      &kp L         &kp U       &kp Y       &kp LBKT     &kp SEMI
+&mt LCTRL ESC &hm LCTRL A  &hm LALT R  &hm LGUI S  &hm LSHIFT T  &kp G                                &kp M      &hm RSHIFT N  &hm RGUI E  &hm RALT I  &hm LCTRL O  &kp SQT
+&kp LSHFT     &kp Z        &kp X       &kp C       &kp D         &kp V  &tog MEDIA      &tog NUMPAD   &kp K      &kp H         &kp COMMA   &kp DOT     &kp FSLH     &kp RSHFT
+                             &kp LALT  &mt F_KEYS ESC  &mt SYM_R SPACE  &mt NUMPAD TAB  &mt ARROW RET &mt SYM_L BSPC  &mt MOUSE SQT  &kp RGUI
+            >;
 
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-		};
-		
-		qwerty_layer {
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+        
+        qwerty_layer {
 // --ENGLISH---------------------------------------------------------------------------------------------------
 // |  ESC  |  1  |  2  |  3   |  4   |  5   |                    |  6   |  7    |  8    |  9   |   0   |   -   |
 // |  TAB  |  Q  |  W  |  E   |  R   |  T   |                    |  Y   |  U    |  I    |  O   |   P   |  "["  |
 // |  CTRL |  A  |  S  |  D   |  F   |  G   |                    |  H   |  J    |  K    |  L   |   ;   |   '   |
 // | SHIFT |  Z  |  X  |  C   |  V   |  B   |  MEDIA |  | NUMPAD |  N   |  M    |  ,    |  .   |   /   | SHIFT |
-//                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER  | RAISE| BSPC  | GUI   |
+//                     | ALT  | GUI  | SYM_R|  SPACE |  | ENTER  | SYM_L| BSPC  | GUI   |
 // --ICELANDIC-------------------------------------------------------------------------------------------------
 // |  ESC  |  1  |  2  |  3   |  4   |  5   |                    |  6   |  7    |  8    |  9   |   0   |   Ö   |
 // |  TAB  |  Q  |  W  |  E   |  R   |  T   |                    |  Y   |  U    |  I    |  O   |   P   |   Ð   |
 // |  CTRL |  A  |  S  |  D   |  F   |  G   |                    |  H   |  J    |  K    |  L   |   Æ   |   ´   |
 // | SHIFT |  Z  |  X  |  C   |  V   |  B   |  MEDIA |  | NUMPAD |  N   |  M    |  ,    |  .   |   Þ   | SHIFT |
-//                     | ALT  | GUI  | LOWER|  SPACE |  |  ENTER | RAISE| BSPC  | GUI   |
-			bindings = <
+//                     | ALT  | GUI  | SYM_R|  SPACE |  |  ENTER | SYM_L| BSPC  | GUI   |
+            bindings = <
 &kp ESC       &kp N1 &kp N2 &kp N3   &kp N4   &kp N5                            &kp N6     &kp N7   &kp N8    &kp N9  &kp N0   &kp MINUS
 &kp TAB       &kp Q  &kp W  &kp E    &kp R    &kp T                             &kp Y      &kp U    &kp I     &kp O   &kp P    &kp LBKT
 &kp LCTRL     &kp A  &kp S  &kp D    &kp F    &kp G                             &kp H      &kp J    &kp K     &kp L   &kp SEMI &kp SQT
 &kp LSHFT     &kp Z  &kp X  &kp C    &kp V    &kp B     &tog MEDIA  &tog NUMPAD &kp N      &kp M    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                        &kp LALT &kp LGUI &mo LOWER &kp SPACE   &kp RET     &mo RAISE  &kp BSPC &kp RGUI
-			>;
+                            &kp LALT &kp LGUI &mo SYM_R &kp SPACE   &kp RET     &mo SYM_L  &kp BSPC &kp RGUI
+            >;
 
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-		};
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
 
-		numpad_layer {
+        numpad_layer {
 // ------------------------------------------------------------------------------------------------------------
-// |       |     |     |     |     |     |                    |      |   7   |   8   |  9   |   (   |   )   |
-// |       |     |     |     |     |     |                    |      |   4   |   5   |  6   |   -   |   =   |
-// |       |     |     |     |     |     |                    |      |   1   |   2   |  3   |   +   |   *   |
-// |       |     |     |     |     |     |        |  | Numpad |      |   0   |   ,   |  .   |   /   |       |
-//                     |     |     |     |        |  |        |      |       |       |
-			bindings = <
-&trans &trans &trans &trans &trans &trans                     &trans       &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp LS(N8)   &kp LS(N9)
-&trans &trans &trans &trans &trans &trans                     &kp C_VOL_UP &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_MINUS &kp KP_EQUAL
-&trans &trans &trans &trans &trans &trans                     &kp C_VOL_DN &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_PLUS  &kp KP_MULTIPLY
-&trans &trans &trans &trans &trans &trans &trans  &tog NUMPAD &kp C_MUTE   &kp KP_N0 &trans    &trans    &kp KP_SLASH &trans
-                  &trans    &trans &trans &trans  &trans      &trans       &trans    &trans
-			>;
+// |       |     |     |     |     |     |                    |      |       |       |      |       |       |
+// |       |     |     |     |     |     |                    |  /   |   7   |   8   |  9   |   -   |   =   |
+// |       |     |     |     |     |     |                    |  *   |   4   |   5   |  6   |   +   |   *   |
+// |       |     |     |     |     |     |        |  | Numpad |  ^   |   1   |   2   |  3   |   %   |       |
+//                     |     |     |     |        |  |   ,    |  0   |   .   |       |
+            bindings = <
+&trans &trans &trans &trans &trans &trans                     &trans       &trans &trans &trans &trans       &trans
+&trans &trans &trans &trans &trans &trans                     &kp KP_SLASH &kp N7 &kp N8 &kp N9 &kp KP_MINUS &kp KP_EQUAL
+&trans &trans &trans &trans &trans &trans                     &kp PIPE     &kp N4 &kp N5 &kp N6 &kp KP_PLUS  &kp KP_MULTIPLY
+&trans &trans &trans &trans &trans &trans &trans  &tog NUMPAD &kp LA(N6)   &kp N1 &kp N2 &kp N3 &kp PRCNT    &trans
+                  &trans    &trans &trans &trans  &kp COMMA   &kp N0       &kp DOT   &trans
+            >;
 
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-		};
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
 
-		media_layer {
+        media_layer {
 // ------------------------------------------------------------------------------------------------------------
 // |       | SCRv | SCR^ |  <<  | Play |  >>  |                  |      |      |      |      |       |       |
 // |       | LCLK | -^-  | RCLK | Bri+ | VOL+ |                  |      |      |      |      |       |       |
 // |       |  <-- | -v-  | -->  | Bri- | VOL- |                  |      |      |      |      |       |       |
 // |       |  <-  |  v   |   ^  |  ->  | Mute |        |  |      |      |      |      |      |       |       |
 //                       |      |      |      |        |  |      |      |      |      |
-			bindings = <
+            bindings = <
 &trans &mwh SCROLL_VERT(100) &mwh SCROLL_VERT(-100) &kp C_PREV          &kp C_PP     &kp C_NEXT                       &trans &trans &trans &trans &trans &trans
 &trans &mkp LCLK             &mmv MOVE_VERT(-3000)  &mkp RCLK           &kp C_BRI_UP &kp C_VOL_UP                     &trans &trans &trans &trans &trans &trans
 &trans &mmv MOVE_HOR(-3000)  &mmv MOVE_VERT(3000)   &mmv MOVE_HOR(3000) &kp C_BRI_DN &kp C_VOL_DN                     &trans &trans &trans &trans &trans &trans
 &trans &kp  LEFT             &kp  DOWN              &kp  UP             &kp RIGHT    &kp C_MUTE   &tog MEDIA  &trans  &trans &trans &trans &trans &trans &trans
                                                     &trans              &trans       &trans       &trans      &trans  &trans &trans &trans
-			>;
+            >;
 
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-		};
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
 
-		lower_layer {
-// --ENGLISH (Can´t be bothered to update both halves for English layout) -------------------------------------
-// | BTCLR | BT1 | BT2 | BT3 | BT4 | BT5  |                    |      |       |       |      |       |       |
-// ...
+        SYM_R_layer {
 // --ICELANDIC-------------------------------------------------------------------------------------------------
-// | BTCLR | BT1 | BT2 | BT3 | BT4 | BT5 |                     |      |       |       |  ≤   |   ≥   |       |
-// |       |  "  |  |  |  =  |  *  |  ^  |                     |      |   [   |   ]   |  <   |   >   |   =   |
-// |       |  '  |  /  |  -  |  +  |  #  |                     |      |   (   |   )   |  {   |   }   |   ~   |
-// |       |  `  |  \  |  _  |  ±  |  &  | QWERTY  |  |        |      |       |   ;   |  :   |   ?   |       |
-//                     |     |     |     |         |  |        |      |  DEL  |       |
-			bindings = <
-&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3     &bt BT_SEL 4                    &trans &trans     &trans        &kp LA(COMMA) &kp LA(DOT)   &trans
-&trans     &kp AT       &kp LA(GRAVE) &kp RPAR      &kp PIPE         &kp LA(N6)                      &trans &kp LA(N8) &kp LA(N9)    &kp GRAVE     &kp LS(GRAVE) &kp RPAR
-&trans     &kp RBKT     &kp AMPS      &kp EQUAL     &kp BSLH         &kp HASH                        &trans &kp LS(N8) &kp LS(N9)    &kp LA(N7)    &kp LA(N0)    &kp LA(RBKT)
-&trans     &kp LA(BSLH) &kp LA(MINUS) &kp LS(EQUAL) &kp LA(LS(BSLH)) &kp CARET &tog QWERTY   &trans  &trans &trans     &kp LS(COMMA) &kp LS(DOT)   &kp RBRC      &trans
-                                      &trans        &trans           &trans    &trans        &trans  &trans &kp DEL    &trans
-			>;
+// | BTCLR | BT1 | BT2 | BT3 | BT4 | BT5 |                     |       |       |       |  ≤   |   ≥   |       |
+// |       |     |     |     |     |     |                     |   ~   |   [   |   ]   |  <   |   >   |       |
+// |       |     |     |     |     |     |                     |   $   |   (   |   )   |  Æ   |   Ö   |       |
+// |       |     |     |     |     |     |         |   |       |   &   |   {   |   }   |  :   |   ;   |       |
+//                     |     |     |     |         |   |   `   |   "   |   '   |       |
+            bindings = <
+&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3     &bt BT_SEL 4                    &trans       &trans     &trans        &kp LA(COMMA) &kp LA(DOT)   &trans
+&trans     &trans       &trans        &trans        &trans           &trans                          &kp LA(RBKT) &kp LA(N8) &kp LA(N9)    &kp GRAVE     &kp LS(GRAVE) &trans
+&trans     &kp LCTRL    &kp LALT      &kp LGUI      &kp LSHIFT       &trans                          &kp DOLLAR   &kp LS(N8) &kp LS(N9)    &kp SEMI      &kp MINUS     &trans
+&trans     &trans       &trans        &trans        &trans           &trans    &tog QWERTY   &trans  &kp CARET    &kp LA(N7) &kp LA(N0)    &kp LS(DOT)   &kp LS(COMMA) &trans
+                                      &trans        &trans           &trans    &trans        &kp LA(BSLH) &kp AT  &kp RBKT   &trans
+            >;
 
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-		};
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
 
-		raise_layer {
-// --ENGLISH (Can´t be bothered to update both halves for English layout) -------------------------------------
-// |       |  F1 |  F2 |  F3 |  F4 |  F5  |                    |  F6  |   F7  |  F8   |  F9  |  F10  |  F11  |
-// ...
+        SYM_L_layer {
+// --ICELANDIC-------------------------------------------------------------------------------------------------
+// |       |     |     |     |     |      |                    |      |       |       |      |       |       |
+// |       |  @  |  |  |  =  |  *  |  ^   |                    |      |       |       |      |       |       |
+// |       |  !  |  /  |  -  |  +  |  ?   |                    |      |       |       |      |       |       |
+// |       |  ¡  |  \  |  _  |  #  |  ¿   |        |  |        |      |       |       |      |       |       |
+//                     |     |     |      |        |  |        |      |       |       |
+            bindings = <
+&trans &trans     &trans         &trans        &trans    &trans                        &trans   &trans     &trans   &trans   &trans    &trans
+&trans &kp LA(Q)  &kp LA(GRAVE)  &kp RPAR      &kp PIPE  &kp LA(N6)                    &trans   &trans     &trans   &trans   &trans    &trans
+&trans &kp LS(N1) &kp AMPS       &kp EQUAL     &kp BSLH  &kp RBRC                      &trans   &kp LSHIFT &kp LGUI &kp LALT &kp LCTRL &trans
+&trans &kp LA(N1) &kp LA(MINUS)  &kp LS(EQUAL) &kp HASH  &kp LS(LA(E)) &trans   &trans &trans   &trans     &trans   &trans   &trans    &trans
+                                 &trans        &trans    &trans        &trans   &trans &trans   &trans     &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+
+        arrow_layer {
+// ------------------------------------------------------------------------------------------------------------
+// |       |      |      |      |      |      |                  |      |      |      |      |       |       |
+// |       | BRI- | BRI+ | VOL- | VOL+ | Mute |                  |      |      |      |      |       |       |
+// |       |  <-  |  v   |   ^  |  ->  | VOL+ |                  |      |      |      |      |       |       |
+// |       | HOME | PGDN | PGUP | END  | VOL- |        |  |      |      |      |      |      |       |       |
+//                       |      |  <<  | Play |   >>   |  |      |      |      |      |
+            bindings = <
+&trans &trans       &trans       &trans       &trans       &trans                          &trans &trans &trans &trans &trans &trans
+&trans &kp C_BRI_DN &kp C_BRI_UP &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE                      &trans &trans &trans &trans &trans &trans
+&trans &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &kp C_VOL_UP                    &trans &kp LSHIFT &kp LGUI &kp LALT &kp LCTRL &trans
+&trans &kp HOME     &kp PG_DN    &kp PG_UP    &kp END      &kp C_MUTE  &trans      &trans  &trans &trans &trans &trans &trans &trans
+                                 &trans       &kp C_PREV   &kp C_PP    &kp C_NEXT  &trans  &trans &trans &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+
+        mouse_layer {
+// ------------------------------------------------------------------------------------------------------------
+// |       | SCRv | SCR^ |  <<  | Play |  >>  |                  |      |      |      |      |       |       |
+// |       | LCLK | -^-  | RCLK | Bri+ | VOL+ |                  |      |      |      |      |       |       |
+// |       |  <-- | -v-  | -->  | Bri- | VOL- |                  |      |      |      |      |       |       |
+// |       |  <-  |  v   |   ^  |  ->  | Mute |        |  |      |      |      |      |      |       |       |
+//                       |      |      |      |        |  |      |      |      |      |
+            bindings = <
+&trans &trans                &trans                &trans                 &trans               &trans                         &trans &trans &trans &trans &trans &trans
+&trans &kp  LEFT             &kp  DOWN             &kp  UP                &kp RIGHT            &kp C_MUTE                     &trans &trans &trans &trans &trans &trans
+&trans &mmv MOVE_HOR(-3000)  &mmv MOVE_VERT(3000)  &mmv MOVE_VERT(-3000)  &mmv MOVE_HOR(3000)  &kp C_VOL_UP                   &trans &kp LSHIFT &kp LGUI &kp LALT &kp LCTRL &trans
+&trans &mwh SCROLL_HOR(-100) &mwh SCROLL_VERT(100) &mwh SCROLL_VERT(-100) &mwh SCROLL_HOR(100) &kp C_VOL_DN &trans    &trans  &trans &trans &trans &trans &trans &trans
+                                                   &trans                 &mkp MCLK            &mkp LCLK    &mkp RCLK &trans  &trans &trans &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+
+        f_key_layer {
 // --ICELANDIC---------------------------------------------------------------------------------------------------
 // |       |  F1 |  F2 |  F3 |  F4 |  F5  |                    |  F6  |   F7  |  F8   |  F9  |  F10  |  F11  |
-// |       |  @  |  %  |  £  |  $  |  €   |                    |      |       |       |      |       |  F12  |
-// |       |  !  |  ?  |  ;  |  :  |  #   |                    |  <-  |   v   |   ^   | ->   |   :   |   '   |
-// |       |  ¡  |  ¿  | VOL-| VOL+|  &   |        |  |        | HOME | PG DN | PG UP | END  |   ;   |       |
+// |       |     |     |     |     |      |                    |      |   F7  |  F8   |  F9  |  F12  |  F12  |
+// |       |     |     |     |     |      |                    |      |   F4  |  F5   |  F6  |  F11  |       |
+// |       |     |     |     |     |      |                    | INS  |   F1  |  F2   |  F3  |  F10  |       |
 //                     |     |     |      |        |  |        |      |       |       |
-			bindings = <
-&trans &kp F1     &kp F2         &kp F3         &kp F4       &kp F5                     &kp F6   &kp F7    &kp F8    &kp F9    &kp F10       &kp F11
-&trans &kp LA(Q)  &kp PRCNT      &kp LS(LA(N3)) &kp LS(N4)   &kp LA(E)                  &trans   &trans    &trans    &trans    &trans        &kp F12
-&trans &kp LS(N1) &kp RBRC       &kp LS(COMMA)  &kp LS(DOT)  &kp LS(N3)                 &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &kp LS(DOT)   &kp RBKT
-&trans &kp LA(N1) &kp LS(LA(E))  &kp C_VOL_DN   &kp C_VOL_UP &kp LS(N6) &trans   &trans &kp HOME &kp PG_DN &kp PG_UP &kp END   &kp LS(COMMA) &trans
-                                 &trans        &trans        &trans     &trans   &trans &trans   &kp DEL   &trans
-			>;
+            bindings = <
+&trans &kp F1    &kp F2   &kp F3   &kp F4     &kp F5                 &kp F6   &kp F7 &kp F8 &kp F9 &kp F10 &kp F11
+&trans &trans    &trans   &trans   &trans     &trans                 &kp CAPS &kp F7 &kp F8 &kp F9 &kp F12 &kp F12
+&trans &kp LCTRL &kp LALT &kp LGUI &kp LSHIFT &trans                 &kp CAPS &kp F4 &kp F5 &kp F6 &kp F11 &trans
+&trans &trans    &trans   &trans   &trans     &trans &trans   &trans &kp INS  &kp F1 &kp F2 &kp F3 &kp F10 &trans
+                          &trans   &trans     &trans &trans   &trans &kp DEL  &trans &trans
+            >;
 
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-		};
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
 
-	};
+    };
 };
 
 /*
@@ -216,11 +268,15 @@
  * |    &    |  CARET               |    
  * |    *    |  KP_MULTIPLY or PIPE |
  * |    =    |  RPAR                |     
- * |    ~    |  LA(RBKT)
+ * |    ~    |  LA(RBKT)            |
  * |    -    |  EQUAL               |     
+ * |    _    |  LS(EQUAL)           |
  * |    +    |  KP_PLUS or BSLH     |              
  * |    ±    |  LA(LS(BSLH))        |              
+ * |    ^    |  LA(N6)              |              
+ * |    @    |  LA(Q)               |              
  * |    ?    |  RBRC                |     
+ * |    ¿    |  LS(LA(E))           |     
  * |    ´    |  SQT                 | Note: Dead key
  * |    '    |  RBKT                |   
  * |    ’    |  LA(FSLH)            |       
