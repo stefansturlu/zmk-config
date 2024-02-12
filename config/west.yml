@@ -4,10 +4,12 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: ftc-fork
       url-base: https://github.com/ftc
+    - name: urob
+      url-base: https://github.com/urob
   projects:
     - name: zmk
-      remote: ftc-fork
-      revision: mouse-ftc
+      remote: urob
+      revision: main
       import: app/west.yml
   self:
     path: config
