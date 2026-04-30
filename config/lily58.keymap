@@ -45,6 +45,16 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+
+        hms: homerow_mods_shift {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS_SHIFT";
+            #binding-cells = <2>;
+            tapping-term-ms = <250>;
+            quick-tap-ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
     };
 
     keymap {
@@ -78,7 +88,7 @@
             bindings = <
 &kp ESC       &kp N1       &kp N2      &kp N3      &kp N4        &kp N5                               &kp N6     &kp N7        &kp N8      &kp N9      &kp N0       &kp MINUS
 &kp TAB       &kp Q        &kp W       &kp F       &kp P         &kp B                                &kp J      &kp L         &kp U       &kp Y       &kp LBKT     &kp SEMI
-&mt LCTRL ESC &hm LCTRL A  &hm LALT R  &hm LGUI S  &hm LSHIFT T  &kp G                                &kp M      &hm RSHIFT N  &hm RGUI E  &hm RALT I  &hm LCTRL O  &kp SQT
+&mt LCTRL ESC &hm LCTRL A  &hm LALT R  &hm LGUI S  &hms LSHIFT T  &kp G                                &kp M      &hms RSHIFT N  &hm RGUI E  &hm RALT I  &hm LCTRL O  &kp SQT
 &kp LSHFT     &kp Z        &kp X       &kp C       &kp D         &kp V  &tog MEDIA      &tog NUMPAD   &kp K      &kp H         &kp COMMA   &kp DOT     &kp FSLH     &kp RSHFT
                              &kp LALT  &lt F_KEYS ESC  &lt SYM_R SPACE  &lt NUMPAD TAB  &lt ARROW RET &lt SYM_L BSPC  &lt MOUSE SQT  &kp RGUI
             >;
